@@ -4,9 +4,6 @@ import home from '../views/home'
 import boxs from '../views/boxs'
 import mine from '../views/mine'
 import login from '../views/login'
-
-Vue.use(VueRouter)
-
 const routes = [
     //     meta: { navShow: true, requireAuth: true, title: '标题' }
     {
@@ -30,7 +27,7 @@ const routes = [
         component: login
     }
 ]
-
+Vue.use(VueRouter)
 const router = new VueRouter({
     mode: 'history',
     base: process.env.BASE_URL,
