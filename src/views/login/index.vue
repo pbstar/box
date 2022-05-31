@@ -14,9 +14,11 @@
                    label-width="4em"
                    placeholder="请输入账号" />
         <van-field v-model="password"
-                   type="password"
+                   :type="showPass?'text':'password'"
                    label-width="4em"
                    label="密码"
+                   :right-icon="showPass?'eye-o':'closed-eye'"
+                   @click-right-icon="showPass=!showPass"
                    placeholder="请输入密码" />
         <van-field v-model="code"
                    class="code"
@@ -30,20 +32,22 @@
           </template>
         </van-field>
       </div>
-      <div class="more">
-        <span>找回密码</span>
-        <span>立即注册</span>
-      </div>
       <van-button round
+                  class="btnBox"
                   block
                   type="info"
                   native-type="submit">提交</van-button>
     </van-form>
+    <div class="more">
+      <span>找回密码</span>
+      <span>立即注册</span>
+    </div>
   </div>
 </template>
 
 <script>
 import VerificationCode from '../../components/tool/VerificationCode';
+import { Toast } from 'vant';
 export default {
   components: {
     VerificationCode
@@ -53,7 +57,8 @@ export default {
       username: '',
       password: '',
       code: '',
-      identifyCode: ''
+      identifyCode: '',
+      showPass: false
     }
   },
   methods: {
@@ -63,7 +68,10 @@ export default {
       })
     },
     onSubmit () {
-      console.log('submit', this.code, this.identifyCode);
+      if (this.username == '') return Toast.fail('请输入账号');
+      if (this.password == '') return Toast.fail('请输入密码');
+      if (this.code == '') return Toast.fail('请输入验证码');
+      if (this.code != this.identifyCode) return Toast.fail('验证码错误');
     },
   }
 }
@@ -73,7 +81,7 @@ export default {
 .home {
   overflow: hidden;
   .form {
-    margin: 150px 10px 20px;
+    margin: 150px 10px 10px;
     .inputBox {
       border-radius: 10px;
       overflow: hidden;
@@ -88,13 +96,16 @@ export default {
         }
       }
     }
-    .more {
-      display: flex;
-      justify-content: space-between;
-      font-size: 12px;
-      color: #666;
-      margin: 10px 2px 16px;
+    .btnBox {
+      margin-top: 16px;
     }
+  }
+  .more {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: #666;
+    margin: 0 12px;
   }
 }
 </style>
