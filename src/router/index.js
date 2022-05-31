@@ -5,6 +5,7 @@ import boxs from '../views/boxs'
 import mine from '../views/mine'
 import login from '../views/login'
 import pc from '../views/pc'
+import nopage from '../views/404'
 const routes = [
     {
         path: '/',
@@ -30,6 +31,11 @@ const routes = [
         name: 'pc',
         component: pc,
         meta: { title: '暂未开通pc端' }
+    }, {
+        path: '*',
+        name: '404',
+        component: nopage,
+        meta: { title: '未找到该页面' }
     }
 ]
 Vue.use(VueRouter)

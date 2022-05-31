@@ -20,6 +20,8 @@ Vue.use(Vant)
 router.beforeEach((to, from, next) => {
     if (to.meta.title) {
         document.title = to.meta.title;
+    } else if (from.meta.title) {
+        document.title = 'box'
     }
     if (to.meta.requireAuth) {
         if (localStorage.getItem('ResData')) {
