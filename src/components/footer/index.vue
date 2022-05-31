@@ -24,12 +24,6 @@
   </div>
 </template>
 
-<script>
-
-export default {
-}
-</script>
-
 <style lang="scss" scoped>
 .home {
   width: 100%;
@@ -53,7 +47,7 @@ export default {
     font-size: 12px;
   }
   .itemActive {
-    color: rgb(0, 46, 210);
+    color: #1989fa;
   }
 }
 </style>

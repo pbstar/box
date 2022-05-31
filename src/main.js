@@ -2,14 +2,19 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import httphelper from './assets/js/http.js';
+import unit from './assets/js/unit.js';
 import Vant from 'vant'
 import 'vant/lib/index.css';
 import './assets/css/public.css';
-let isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
 
 Vue.config.productionTip = false
 Vue.prototype.$http = httphelper;
-Vue.prototype.$isMobile = isMobile;
+Vue.prototype.$isMobile = unit.isMobile;
+Vue.prototype.$delUrlData = unit.delUrlData;
+Vue.prototype.$strToBase64 = unit.strToBase64;
+Vue.prototype.$base64ToStr = unit.base64ToStr;
+Vue.prototype.$urlToCode = unit.urlToCode;
+Vue.prototype.$codeToUrl = unit.codeToUrl;
 Vue.use(Vant)
 
 router.beforeEach((to, from, next) => {

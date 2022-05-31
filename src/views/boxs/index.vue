@@ -1,6 +1,14 @@
 <template>
   <div class="home">
-    <van-button type="primary">box</van-button>
+    <van-grid :gutter="10"
+              class="box"
+              column-num="2">
+      <van-grid-item v-for="value in 8"
+                     :key="value"
+                     badge="VIP"
+                     icon="photo-o"
+                     text="文字" />
+    </van-grid>
   </div>
 </template>
 
@@ -12,8 +20,9 @@ export default {
 
 <style lang="scss" scoped>
 .home {
-  div {
-    color: red;
+  overflow: hidden;
+  .box {
+    margin-top: 10px;
   }
 }
 </style>

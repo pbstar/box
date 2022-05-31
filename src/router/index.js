@@ -4,8 +4,8 @@ import home from '../views/home'
 import boxs from '../views/boxs'
 import mine from '../views/mine'
 import login from '../views/login'
+import pc from '../views/pc'
 const routes = [
-    //     meta: { navShow: true, requireAuth: true, title: '标题' }
     {
         path: '/',
         name: 'home',
@@ -25,6 +25,11 @@ const routes = [
         path: '/login',
         name: 'login',
         component: login
+    }, {
+        path: '/pc',
+        name: 'pc',
+        component: pc,
+        meta: { title: '暂未开通pc端' }
     }
 ]
 Vue.use(VueRouter)

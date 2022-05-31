@@ -9,6 +9,13 @@ import Footer from './components/footer'
 export default {
   components: {
     Footer
+  },
+  created () {
+    if (!this.$isMobile()) {
+      this.$router.push({
+        name: 'pc'
+      })
+    }
   }
 }
 </script>
