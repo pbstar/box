@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <router-link to="/home"
+    <router-link to="/"
                  :class="$route.name=='home'?'itemActive':''"
                  class="item">
       <van-icon name="wap-home-o"
