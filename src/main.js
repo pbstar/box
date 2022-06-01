@@ -15,8 +15,16 @@ Vue.prototype.$strToBase64 = unit.strToBase64;
 Vue.prototype.$base64ToStr = unit.base64ToStr;
 Vue.prototype.$urlToCode = unit.urlToCode;
 Vue.prototype.$codeToUrl = unit.codeToUrl;
+Vue.prototype.$getLocalStorage = unit.getLocalStorage;
+Vue.prototype.$setLocalStorage = unit.setLocalStorage;
 Vue.use(Vant)
-
+Vue.directive('myfocus', {
+    inserted: (el, binding) => {
+        if (binding.value == true || binding.value == undefined) {
+            el.focus()
+        }
+    }
+});
 router.beforeEach((to, from, next) => {
     if (to.meta.title) {
         document.title = to.meta.title;

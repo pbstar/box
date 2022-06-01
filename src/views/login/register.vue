@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <van-nav-bar title="登录"
+    <van-nav-bar title="注册"
                  left-text="返回"
                  left-arrow
                  fixed
@@ -9,17 +9,28 @@
     <van-form @submit="onSubmit"
               class="form">
       <div class="inputBox">
+        <van-field v-model="nickname"
+                   label="昵称"
+                   label-width="4em"
+                   placeholder="请输入昵称" />
         <van-field v-model="username"
                    label="账号"
                    label-width="4em"
-                   placeholder="请输入账号" />
+                   placeholder="请输入6-12位账号" />
         <van-field v-model="password"
                    :type="showPass?'text':'password'"
                    label-width="4em"
                    label="密码"
                    :right-icon="showPass?'eye-o':'closed-eye'"
                    @click-right-icon="showPass=!showPass"
-                   placeholder="请输入密码" />
+                   placeholder="请输入6-12位密码" />
+        <van-field v-model="password2"
+                   :type="showPass2?'text':'password'"
+                   label-width="4em"
+                   label="确认密码"
+                   :right-icon="showPass2?'eye-o':'closed-eye'"
+                   @click-right-icon="showPass2=!showPass2"
+                   placeholder="请再次输入密码" />
         <van-field v-model="code"
                    class="code"
                    label="验证码"
@@ -31,16 +42,24 @@
                               :contentHeight="34"></VerificationCode>
           </template>
         </van-field>
+        <van-field v-model="mbque"
+                   label="密保问题"
+                   label-width="4em"
+                   placeholder="例：你爱吃的水果是什么？" />
+        <van-field v-model="mbans"
+                   label="密保答案"
+                   label-width="4em"
+                   placeholder="例：西瓜" />
       </div>
       <van-button round
                   class="btnBox"
                   block
                   type="info"
-                  native-type="submit">提交</van-button>
+                  native-type="submit">注册</van-button>
     </van-form>
     <div class="more">
       <span>找回密码</span>
-      <span @click="toReg">立即注册</span>
+      <span @click="onClickLeft">去登录</span>
     </div>
   </div>
 </template>
@@ -54,22 +73,22 @@ export default {
   },
   data () {
     return {
+      nickname: '',
       username: '',
       password: '',
+      password2: '',
       code: '',
       identifyCode: '',
-      showPass: false
+      showPass: false,
+      showPass2: false,
+      mbque: '',
+      mbans: ''
     }
   },
   methods: {
     onClickLeft () {
       this.$router.push({
-        name: 'home'
-      })
-    },
-    toReg () {
-      this.$router.push({
-        name: 'register'
+        name: 'login'
       })
     },
     onSubmit () {

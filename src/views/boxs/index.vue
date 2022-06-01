@@ -5,9 +5,9 @@
               column-num="2">
       <van-grid-item v-for="value in 8"
                      :key="value"
-                     badge="VIP"
+                     :badge="value%3==0?'VIP':''"
                      icon="photo-o"
-                     text="文字" />
+                     :text="'文字'+value" />
     </van-grid>
   </div>
 </template>

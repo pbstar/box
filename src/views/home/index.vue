@@ -29,9 +29,6 @@ export default {
     }
   },
   created () {
-    console.log(this.$isMobile());
-    console.log(this.$strToBase64('pb1234'), this.$base64ToStr(this.$strToBase64('pb1234')));
-    console.log(this.$urlToCode(window.location.href), this.$codeToUrl(this.$urlToCode(window.location.href)));
   },
   methods: {
     onChange (index) {

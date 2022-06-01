@@ -20,12 +20,12 @@ function strToBase64 (str) {
     if (str) {
         var encode = encodeURI(str);
         var base64 = btoa(encode);
-        return base64;
+        return urlToCode(base64);
     }
 }
 function base64ToStr (base64) {
     if (base64) {
-        var decode = atob(base64);
+        var decode = atob(codeToUrl(base64));
         var str = decodeURI(decode);
         return str;
     }
@@ -36,11 +36,19 @@ function urlToCode (str) {
 function codeToUrl (str) {
     if (str) return decodeURIComponent(str)
 }
+function getLocalStorage (name) {
+    if (name) return base64ToStr(localStorage.getItem(name))
+}
+function setLocalStorage (name, value) {
+    if (name) localStorage.setItem(name, strToBase64(value));
+}
 export default {
     delUrlData,
     isMobile,
     strToBase64,
     base64ToStr,
     urlToCode,
-    codeToUrl
+    codeToUrl,
+    getLocalStorage,
+    setLocalStorage
 }

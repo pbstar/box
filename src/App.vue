@@ -11,6 +11,13 @@ export default {
     Footer
   },
   created () {
+    if (this.$route.name == 'home' && this.$route.query.inviter_id) {
+      if (!this.$getLocalStorage('inviterId')) {
+        console.log(this.$getLocalStorage('userIp'));
+        this.$setLocalStorage('inviterId', this.$route.query.inviter_id);
+        console.log(this.$getLocalStorage('inviterId'));
+      }
+    }
     if (!this.$isMobile()) {
       this.$router.push({
         name: 'pc'

@@ -4,6 +4,7 @@ import home from '../views/home'
 import boxs from '../views/boxs'
 import mine from '../views/mine'
 import login from '../views/login'
+import register from '../views/login/register'
 import pc from '../views/pc'
 import nopage from '../views/404'
 const routes = [
@@ -26,6 +27,10 @@ const routes = [
         path: '/login',
         name: 'login',
         component: login
+    }, {
+        path: '/register',
+        name: 'register',
+        component: register
     }, {
         path: '/pc',
         name: 'pc',
