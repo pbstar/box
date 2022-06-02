@@ -3,6 +3,7 @@ import App from './App.vue'
 import router from './router'
 import httphelper from './assets/js/http.js';
 import unit from './assets/js/unit.js';
+import vantjs from './assets/js/vant.js';
 import Vant from 'vant'
 import 'vant/lib/index.css';
 import './assets/css/public.css';
@@ -17,6 +18,8 @@ Vue.prototype.$urlToCode = unit.urlToCode;
 Vue.prototype.$codeToUrl = unit.codeToUrl;
 Vue.prototype.$getLocalStorage = unit.getLocalStorage;
 Vue.prototype.$setLocalStorage = unit.setLocalStorage;
+Vue.prototype.$tipSuccess = vantjs.tipSuccess;
+Vue.prototype.$tipFail = vantjs.tipFail;
 Vue.use(Vant)
 Vue.directive('myfocus', {
     inserted: (el, binding) => {

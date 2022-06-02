@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <van-nav-bar title="登录"
+    <van-nav-bar title="找回密码"
                  left-text="返回"
                  left-arrow
                  fixed
@@ -39,7 +39,7 @@
                   native-type="submit">提交</van-button>
     </van-form>
     <div class="more">
-      <span @click="toFindpass">找回密码</span>
+      <span>找回密码</span>
       <span @click="toReg">立即注册</span>
     </div>
   </div>
@@ -63,17 +63,12 @@ export default {
   methods: {
     onClickLeft () {
       this.$router.push({
-        name: 'home'
+        name: 'login'
       })
     },
     toReg () {
       this.$router.push({
         name: 'register'
-      })
-    },
-    toFindpass () {
-      this.$router.push({
-        name: 'findPass'
       })
     },
     onSubmit () {

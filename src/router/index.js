@@ -5,6 +5,7 @@ import boxs from '../views/boxs'
 import mine from '../views/mine'
 import login from '../views/login'
 import register from '../views/login/register'
+import findPass from '../views/login/findPass'
 import pc from '../views/pc'
 import nopage from '../views/404'
 const routes = [
@@ -31,6 +32,10 @@ const routes = [
         path: '/register',
         name: 'register',
         component: register
+    }, {
+        path: '/find_pass',
+        name: 'findPass',
+        component: findPass
     }, {
         path: '/pc',
         name: 'pc',

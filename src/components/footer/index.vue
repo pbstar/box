@@ -27,16 +27,17 @@
 <style lang="scss" scoped>
 .home {
   width: 100%;
-  height: 50px;
+  height: 45px;
   display: flex;
   justify-content: space-around;
   position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
-  padding-bottom: env(safe-area-inset-bottom);
   background-color: #fff;
-  padding: 6px 10px;
+  padding-top: 5px;
+  padding-bottom: env(safe-area-inset-bottom);
+  box-sizing: content-box;
   .item {
     width: 60px;
     height: 100%;
@@ -45,6 +46,8 @@
     align-items: center;
     flex-direction: column;
     font-size: 12px;
+    padding-bottom: 5px;
+    box-sizing: border-box;
   }
   .itemActive {
     color: #1989fa;

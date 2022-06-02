@@ -11,14 +11,13 @@ export default {
     Footer
   },
   created () {
-    if (this.$route.name == 'home' && this.$route.query.inviter_id) {
-      if (!this.$getLocalStorage('inviterId')) {
-        console.log(this.$getLocalStorage('userIp'));
-        this.$setLocalStorage('inviterId', this.$route.query.inviter_id);
-        console.log(this.$getLocalStorage('inviterId'));
+    if (this.$isMobile()) {
+      if (this.$route.name == 'home' && this.$route.query.inviter_id) {
+        if (!this.$getLocalStorage('inviterId')) {
+          this.$setLocalStorage('inviterId', this.$route.query.inviter_id);
+        }
       }
-    }
-    if (!this.$isMobile()) {
+    } else {
       this.$router.push({
         name: 'pc'
       })
