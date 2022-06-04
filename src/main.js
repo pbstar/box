@@ -18,6 +18,8 @@ Vue.prototype.$urlToCode = unit.urlToCode;
 Vue.prototype.$codeToUrl = unit.codeToUrl;
 Vue.prototype.$getLocalStorage = unit.getLocalStorage;
 Vue.prototype.$setLocalStorage = unit.setLocalStorage;
+Vue.prototype.$getTime = unit.getTime;
+Vue.prototype.$getIsToday = unit.getIsToday;
 Vue.prototype.$tipSuccess = vantjs.tipSuccess;
 Vue.prototype.$tipFail = vantjs.tipFail;
 Vue.use(Vant);

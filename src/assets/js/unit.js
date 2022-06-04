@@ -43,6 +43,31 @@ function getLocalStorage(name) {
 function setLocalStorage(name, value) {
   if (name) localStorage.setItem(name, strToBase64(value));
 }
+function getTime(str) {
+  if (str) {
+    let date = new Date(Number(str));
+    let year = date.getFullYear();
+    let month = date.getMonth() + 1;
+    month = month < 10 ? "0" + month : month;
+    let day = date.getDate();
+    day = day < 10 ? "0" + day : day;
+    let h = date.getHours();
+    h = h < 10 ? "0" + h : h;
+    let m = date.getMinutes();
+    m = m < 10 ? "0" + m : m;
+    let s = date.getSeconds();
+    s = s < 10 ? "0" + s : s;
+    return year + "-" + month + "-" + day + " " + h + ":" + m + ":" + s;
+  }
+}
+function getIsToday(str) {
+  if (str) {
+    return (
+      new Date(Number(str)).toDateString() ==
+      new Date(Date.now()).toDateString()
+    );
+  }
+}
 export default {
   delUrlData,
   isMobile,
@@ -52,4 +77,6 @@ export default {
   codeToUrl,
   getLocalStorage,
   setLocalStorage,
+  getTime,
+  getIsToday,
 };
