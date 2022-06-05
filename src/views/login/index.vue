@@ -2,7 +2,6 @@
   <div class="home">
     <van-nav-bar
       title="登录"
-      left-text="返回"
       left-arrow
       fixed
       placeholder
