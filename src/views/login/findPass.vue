@@ -1,42 +1,39 @@
 <template>
   <div class="home">
-    <van-nav-bar title="找回密码"
-                 left-text="返回"
-                 left-arrow
-                 fixed
-                 placeholder
-                 @click-left="onClickLeft" />
-    <van-form @submit="onSubmit"
-              class="form">
+    <van-nav-bar
+      title="找回密码"
+      left-arrow
+      fixed
+      placeholder
+      @click-left="onClickLeft"
+    />
+    <van-form @submit="onSubmit" class="form">
       <div class="inputBox">
-        <van-field v-model="username"
-                   label="账号"
-                   label-width="4em"
-                   placeholder="请输入账号" />
-        <van-field v-model="password"
-                   :type="showPass?'text':'password'"
-                   label-width="4em"
-                   label="密码"
-                   :right-icon="showPass?'eye-o':'closed-eye'"
-                   @click-right-icon="showPass=!showPass"
-                   placeholder="请输入密码" />
-        <van-field v-model="code"
-                   class="code"
-                   label="验证码"
-                   label-width="4em"
-                   placeholder="请输入右侧验证码">
+        <van-field
+          v-model="username"
+          label="账号"
+          label-width="4.2em"
+          placeholder="请输入账号"
+        />
+        <van-field
+          v-model="code"
+          class="code"
+          label="验证码"
+          label-width="4.2em"
+          placeholder="请输入右侧验证码"
+        >
           <template #extra>
-            <VerificationCode :changeCode.sync="identifyCode"
-                              identifyCodes="23456789"
-                              :contentHeight="34"></VerificationCode>
+            <VerificationCode
+              :changeCode.sync="identifyCode"
+              identifyCodes="23456789"
+              :contentHeight="34"
+            ></VerificationCode>
           </template>
         </van-field>
       </div>
-      <van-button round
-                  class="btnBox"
-                  block
-                  type="info"
-                  native-type="submit">提交</van-button>
+      <van-button round class="btnBox" block type="info" native-type="submit"
+        >下一步</van-button
+      >
     </van-form>
     <div class="more">
       <span>找回密码</span>
@@ -46,39 +43,39 @@
 </template>
 
 <script>
-import VerificationCode from '../../components/tool/VerificationCode';
+import VerificationCode from "../../components/tool/VerificationCode";
 export default {
   components: {
-    VerificationCode
+    VerificationCode,
   },
-  data () {
+  data() {
     return {
-      username: '',
-      password: '',
-      code: '',
-      identifyCode: '',
-      showPass: false
-    }
+      username: "",
+      password: "",
+      code: "",
+      identifyCode: "",
+      showPass: false,
+    };
   },
   methods: {
-    onClickLeft () {
+    onClickLeft() {
       this.$router.push({
-        name: 'login'
-      })
+        name: "login",
+      });
     },
-    toReg () {
+    toReg() {
       this.$router.push({
-        name: 'register'
-      })
+        name: "register",
+      });
     },
-    onSubmit () {
-      if (this.username == '') return this.$tipFail('请输入账号');
-      if (this.password == '') return this.$tipSuccess('请输入密码');
-      if (this.code == '') return this.$tipFail('请输入验证码');
-      if (this.code != this.identifyCode) return this.$tipFail('验证码错误');
+    onSubmit() {
+      if (this.username == "") return this.$tipFail("请输入账号");
+      if (this.password == "") return this.$tipSuccess("请输入密码");
+      if (this.code == "") return this.$tipFail("请输入验证码");
+      if (this.code != this.identifyCode) return this.$tipFail("验证码错误");
     },
-  }
-}
+  },
+};
 </script>
 
 <style lang="scss" scoped>

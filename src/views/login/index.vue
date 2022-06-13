@@ -1,24 +1,29 @@
 <template>
   <div class="home">
     <van-nav-bar
-      title="登录"
+      title="用户登录"
       left-arrow
       fixed
       placeholder
       @click-left="onClickLeft"
+    />
+    <img
+      src="http://oss.mcweb.club/img/_2022/06/13/12/45/40/456/6483441/5296504236917315728"
+      class="banner"
+      alt=""
     />
     <van-form @submit="onSubmit" class="form">
       <div class="inputBox">
         <van-field
           v-model="username"
           label="账号"
-          label-width="4em"
+          label-width="4.2em"
           placeholder="请输入账号"
         />
         <van-field
           v-model="password"
           :type="showPass ? 'text' : 'password'"
-          label-width="4em"
+          label-width="4.2em"
           label="密码"
           :right-icon="showPass ? 'eye-o' : 'closed-eye'"
           @click-right-icon="showPass = !showPass"
@@ -28,7 +33,7 @@
           v-model="code"
           class="code"
           label="验证码"
-          label-width="4em"
+          label-width="4.2em"
           placeholder="请输入右侧验证码"
         >
           <template #extra>
@@ -78,9 +83,10 @@ export default {
       });
     },
     toFindpass() {
-      this.$router.push({
-        name: "findPass",
-      });
+      return this.$tipFail("开发中");
+      // this.$router.push({
+      //   name: "findPass",
+      // });
     },
     onSubmit() {
       if (this.username == "") return this.$tipFail("请输入账号");
@@ -113,8 +119,13 @@ export default {
 <style lang="scss" scoped>
 .home {
   overflow: hidden;
+  .banner {
+    width: 70%;
+    margin: 30px auto 0;
+    display: block;
+  }
   .form {
-    margin: 150px 10px 10px;
+    margin: 0 10px 10px;
     .inputBox {
       border-radius: 10px;
       overflow: hidden;

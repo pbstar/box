@@ -1,18 +1,34 @@
 <template>
   <div class="home">
-    <van-swipe class="swipe"
-               :autoplay="3000"
-               @change="onChange">
-      <van-swipe-item>1</van-swipe-item>
-      <van-swipe-item>2</van-swipe-item>
-      <van-swipe-item>3</van-swipe-item>
-      <van-swipe-item>4</van-swipe-item>
-      <van-swipe-item>4</van-swipe-item>
-      <van-swipe-item>4</van-swipe-item>
-      <van-swipe-item>4</van-swipe-item>
-      <van-swipe-item>4</van-swipe-item>
-      <van-swipe-item>4</van-swipe-item>
-      <van-swipe-item>4</van-swipe-item>
+    <van-swipe class="swipe" :autoplay="3000" @change="onChange">
+      <van-swipe-item>
+        <img
+          class="simg"
+          src="http://oss.mcweb.club/img/_2022/06/13/12/31/20/806/6483441/15667521302129716616"
+          alt=""
+        />
+      </van-swipe-item>
+      <van-swipe-item
+        ><img
+          class="simg"
+          src="http://oss.mcweb.club/img/_2022/06/13/12/31/20/806/6483441/15667521302129716616"
+          alt=""
+        />
+      </van-swipe-item>
+      <van-swipe-item>
+        <img
+          class="simg"
+          src="http://oss.mcweb.club/img/_2022/06/13/12/31/20/806/6483441/15667521302129716616"
+          alt=""
+        />
+      </van-swipe-item>
+      <van-swipe-item>
+        <img
+          class="simg"
+          src="http://oss.mcweb.club/img/_2022/06/13/12/31/20/806/6483441/15667521302129716616"
+          alt=""
+        />
+      </van-swipe-item>
       <template #indicator>
         <div class="custom-indicator">{{ current + 1 }}/4</div>
       </template>
@@ -21,21 +37,19 @@
 </template>
 
 <script>
-
 export default {
-  data () {
+  data() {
     return {
-      current: 0
-    }
+      current: 0,
+    };
   },
-  created () {
-  },
+  created() {},
   methods: {
-    onChange (index) {
+    onChange(index) {
       this.current = index;
     },
-  }
-}
+  },
+};
 </script>
 
 <style lang="scss" scoped>
@@ -51,6 +65,10 @@ export default {
       font-size: 12px;
       background: rgba(0, 0, 0, 0.1);
       color: #fff;
+    }
+    .simg {
+      width: 100%;
+      height: 200px;
     }
   }
 }

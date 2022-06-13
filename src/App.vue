@@ -5,25 +5,27 @@
   </div>
 </template>
 <script>
-import Footer from './components/footer'
+import Footer from "./components/footer";
 export default {
   components: {
-    Footer
+    Footer,
   },
-  created () {
+  created() {
     if (this.$isMobile()) {
-      if (this.$route.name == 'home' && this.$route.query.inviter_id) {
-        if (!this.$getLocalStorage('inviterId')) {
-          this.$setLocalStorage('inviterId', this.$route.query.inviter_id);
+      if (this.$route.name == "home" && this.$route.query.inviter_id) {
+        if (!this.$getLocalStorage("inviterId")) {
+          this.$setLocalStorage("inviterId", this.$route.query.inviter_id);
         }
       }
     } else {
-      this.$router.push({
-        name: 'pc'
-      })
+      if (this.$route.name != "pc") {
+        this.$router.push({
+          name: "pc",
+        });
+      }
     }
-  }
-}
+  },
+};
 </script>
 <style lang="scss" scoped>
 .page {

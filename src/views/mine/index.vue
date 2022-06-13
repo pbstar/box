@@ -11,13 +11,7 @@
       <div class="trbox">
         <img
           v-if="info ? !$getIsToday(info.stime) : false"
-          src="../../assets/icons/sign1.png"
-          alt=""
-        />
-        <img
-          v-else
-          style="width: 27px; height: 27px"
-          src="../../assets/icons/sign2.png"
+          src="../../assets/icons/qian.png"
           alt=""
         />
       </div>
@@ -104,10 +98,6 @@ export default {
     }
     .trbox {
       margin-right: 5px;
-      img {
-        width: 30px;
-        height: 30px;
-      }
     }
   }
   .title {
