@@ -11,13 +11,7 @@ export default {
     Footer,
   },
   created() {
-    if (this.$isMobile()) {
-      if (this.$route.name == "home" && this.$route.query.inviter_id) {
-        if (!this.$getLocalStorage("inviterId")) {
-          this.$setLocalStorage("inviterId", this.$route.query.inviter_id);
-        }
-      }
-    } else {
+    if (!this.$isMobile()) {
       if (this.$route.name != "pc") {
         this.$router.push({
           name: "pc",

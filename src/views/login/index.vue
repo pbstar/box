@@ -109,6 +109,8 @@ export default {
             this.$tipFail("密码错误");
           } else if (res.code == 300) {
             this.$tipFail("账号未注册");
+          } else {
+            this.$tipFail("系统错误");
           }
         });
     },

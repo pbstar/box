@@ -43,7 +43,13 @@ export default {
       current: 0,
     };
   },
-  created() {},
+  created() {
+    if (this.$route.query.inviter_id) {
+      if (!this.$getLocalStorage("inviterId")) {
+        this.$setLocalStorage("inviterId", this.$route.query.inviter_id);
+      }
+    }
+  },
   methods: {
     onChange(index) {
       this.current = index;
